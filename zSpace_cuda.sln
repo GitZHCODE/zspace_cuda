@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30621.155
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CPP", "CPP", "{CEB5BA3B-CDAD-4A8B-80EC-34DA2A0B179A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "07_Cuda", "07_Cuda", "{6F73DF29-356C-4EFD-9B3D-C5399C12B68B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "07_zSpace_CUDA_Toolsets", "projects\CPP\zSpace_CUDA_Toolsets\zSpace_CUDA_Toolsets.vcxproj", "{D4DDFD61-565A-432E-B78E-874A9EAC13BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug_DLL|x64 = Debug_DLL|x64
+		Debug_DLL|x86 = Debug_DLL|x86
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release_DLL|x64 = Release_DLL|x64
+		Release_DLL|x86 = Release_DLL|x86
+		Release_Make|x64 = Release_Make|x64
+		Release_Make|x86 = Release_Make|x86
+		Release_Unreal|x64 = Release_Unreal|x64
+		Release_Unreal|x86 = Release_Unreal|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug_DLL|x64.ActiveCfg = Debug_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug_DLL|x64.Build.0 = Debug_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug_DLL|x86.ActiveCfg = Debug_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug|x64.ActiveCfg = Debug_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug|x64.Build.0 = Debug_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug|x86.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug|x86.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_DLL|x64.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_DLL|x64.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_DLL|x86.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Make|x64.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Make|x64.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Make|x86.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Make|x86.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x64.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x64.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x86.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x86.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x64.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x64.Build.0 = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x86.ActiveCfg = Release_DLL|x64
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x86.Build.0 = Release_DLL|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F73DF29-356C-4EFD-9B3D-C5399C12B68B} = {CEB5BA3B-CDAD-4A8B-80EC-34DA2A0B179A}
+		{D4DDFD61-565A-432E-B78E-874A9EAC13BB} = {6F73DF29-356C-4EFD-9B3D-C5399C12B68B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {894BF4B1-8A0F-4611-AB30-F8EFD51AE1D4}
+	EndGlobalSection
+EndGlobal

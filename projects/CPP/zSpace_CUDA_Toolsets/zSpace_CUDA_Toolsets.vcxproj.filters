@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="..\..\..\cpp\headers\zCudaToolsets\base\zCdUtilities.cuh">
+      <Filter>Headers\Base</Filter>
+    </CudaCompile>
+    <CudaCompile Include="..\..\..\cpp\headers\zCudaToolsets\energy\zCdSolar.cuh">
+      <Filter>Headers\Energy</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Headers">
+      <UniqueIdentifier>{df916486-2112-4923-aec9-a5c09a5b45db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles">
+      <UniqueIdentifier>{2451c220-b709-419e-b2fd-9313e8544a46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Energy">
+      <UniqueIdentifier>{ff34b76d-be9d-42e2-9c38-17057fccb6c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles\Energy">
+      <UniqueIdentifier>{d77622e0-61e6-4077-a2a7-da8a942ca946}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Base">
+      <UniqueIdentifier>{46daa5b2-058c-46aa-89dd-98da78a39d55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\Field">
+      <UniqueIdentifier>{45283c30-28c6-4b40-97a7-658b0538bc48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Headers\VizScan">
+      <UniqueIdentifier>{05c1a49e-5e86-417c-96ba-bb2b2e7fa40d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles\VizScan">
+      <UniqueIdentifier>{cc032e4e-41f2-4c30-aee4-2a0d8c025ce4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SourceFiles\Field">
+      <UniqueIdentifier>{7e97d1e6-a31f-4018-b6f7-3313df95db54}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\energy\zTsSolarAnalysis.h">
+      <Filter>Headers\Energy</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\base\zCudaDefinitions.h">
+      <Filter>Headers\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsMeshField.h">
+      <Filter>Headers\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\vizscan\zTsVizScan.h">
+      <Filter>Headers\VizScan</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsVoxelField.h">
+      <Filter>Headers\Field</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zCdVoxelField.cuh">
+      <Filter>Headers\Field</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarAnalysis.cpp">
+      <Filter>SourceFiles\Energy</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\vizscan\zTsVizScan.cpp">
+      <Filter>SourceFiles\VizScan</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsVoxelField.cpp">
+      <Filter>SourceFiles\Field</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
