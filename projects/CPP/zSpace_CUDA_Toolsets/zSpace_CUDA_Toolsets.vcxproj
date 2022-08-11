@@ -75,7 +75,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>ZSPACE_DYNAMIC_LIBRARY;WIN32;WIN64;NDEBUG;_CONSOLE;;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(MayaDir)/include;$(zspacecoreDir)/cpp/Depends/Armadillo;$(zspacecoreDir)/cpp/Depends;$(zspacecoreDir);$(zspacecoreDir)/cpp;$(SolutionDir)/cpp;$(zspacecoreDir)/cpp/Depends/alglib/cpp/src/;$(CudaToolkitIncludeDir);$(CudaCommonDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -98,12 +98,13 @@
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\base\zCudaDefinitions.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\energy\zTsSolarAnalysis.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zCdVoxelField.cuh" />
-    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsMeshField.h" />
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsPixelField.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsVoxelField.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\vizscan\zTsVizScan.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarAnalysis.cpp" />
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsPixelField.cpp" />
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsVoxelField.cpp" />
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\vizscan\zTsVizScan.cpp" />
   </ItemGroup>

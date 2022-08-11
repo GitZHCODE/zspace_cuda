@@ -44,7 +44,7 @@
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\base\zCudaDefinitions.h">
       <Filter>Headers\Base</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsMeshField.h">
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsPixelField.h">
       <Filter>Headers\Field</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\vizscan\zTsVizScan.h">
@@ -65,6 +65,9 @@
       <Filter>SourceFiles\VizScan</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsVoxelField.cpp">
+      <Filter>SourceFiles\Field</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsPixelField.cpp">
       <Filter>SourceFiles\Field</Filter>
     </ClCompile>
   </ItemGroup>

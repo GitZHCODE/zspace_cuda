@@ -56,33 +56,36 @@ namespace zSpace
 
 	/** @}*/
 
-	class ZSPACE_CUDA zTsMeshField
+	class ZSPACE_CUDA zTsPixelField
 	{
 	private:
 
-		/*!	\brief pointer to container of positions	*/
-		float* positions;
+		/*!	\brief pointer to container of vertex positions	*/
+		float* vPositions;
+
+		/*!	\brief pointer to container of vertex colors*/
+		float* vColors;
 
 		/*!	\brief number of points in the container	*/
-		int numVertices;
+		int numV;
 
-		/*!	\brief pointer to container of poly connects. Quads only	*/
-		int* polyConnects;
+		/*!	\brief pointer to container of polygon vertex connects. Quads only	*/
+		int* polyVConnects;
 		
 		/*!	\brief number of points in the container	*/
-		int numPolygons;
+		int numP;
 
 		/*!	\brief pointer to container of isovalues. */
-		float* isoValues;
+		float* pixelValues;
 
 		/*!	\brief number of points in the container	*/
-		int numEdges;
+		int numE;
 
-		/*!	\brief pointer to container of poly connects. Quads only	*/
-		int* edgeConnects;
+		/*!	\brief pointer to container of polygon edge connects. Quads only	*/
+		int* polyEConnects;
 
 		/*!	\brief pointer to container of edge colors*/
-		float* edgecolors;
+		float* eColors;
 
 		/*!	\brief pointer to container of contour positions, every pair of 2 positions make an graph edge*/
 		float* contourPositions;
@@ -104,7 +107,7 @@ namespace zSpace
 		/*! \brief Default constructor.
 		*	\since version 0.0.4
 		*/
-		ZSPACE_CUDA_CALLABLE_HOST zTsMeshField();
+		ZSPACE_CUDA_CALLABLE_HOST zTsPixelField();
 
 		//--------------------------
 		//---- DESTRUCTOR
@@ -113,68 +116,45 @@ namespace zSpace
 		/*! \brief Default destructor.
 		*	\since version 0.0.4
 		*/
-		ZSPACE_CUDA_CALLABLE_HOST ~zTsMeshField();
+		ZSPACE_CUDA_CALLABLE_HOST ~zTsPixelField();
 
 		//--------------------------
 		//---- SET METHODS
 		//--------------------------	
 
-		ZSPACE_CUDA_CALLABLE_HOST void setNormals(const float* _normals, int _numNormals, bool EPWread);
+		ZSPACE_CUDA_CALLABLE_HOST void setPixels(const float* _vPositions, const float* _vColors, float* _pixelValues, const int* _polyconnects, int _numVertices, int _numPolygons);
 
-		ZSPACE_CUDA_CALLABLE_HOST bool setEPWData(string path);
-
-		ZSPACE_CUDA_CALLABLE_HOST void setDomain_Dates(zDomainDate& _dDate);
-
+		ZSPACE_CUDA_CALLABLE_HOST void setPixelEdges(const int* edgeconnects, const float* _edgeColors, int _numEdges);
+		
 		ZSPACE_CUDA_CALLABLE_HOST void setDomain_Colors(zDomainColor& _dColor);
-
-		ZSPACE_CUDA_CALLABLE_HOST void setLocation(zLocation& _location);
-
+				
 		//--------------------------
 		//---- GET METHODS
 		//--------------------------	
 
-		ZSPACE_CUDA_CALLABLE int numNormals();
+		ZSPACE_CUDA_CALLABLE int numVertices();
 
-		ZSPACE_CUDA_CALLABLE int numSunVecs();
+		ZSPACE_CUDA_CALLABLE int numPolygons();
 
-		ZSPACE_CUDA_CALLABLE int numDataPoints();
+		ZSPACE_CUDA_CALLABLE int numEdges();
 
-		ZSPACE_CUDA_CALLABLE float* getRawNormals();
+		ZSPACE_CUDA_CALLABLE float* getRawVertexPositions();
 
-		ZSPACE_CUDA_CALLABLE float* getRawColors();
+		ZSPACE_CUDA_CALLABLE float* getRawVertexColors();
 
-		ZSPACE_CUDA_CALLABLE float* getRawNormals_SunVectors();
+		ZSPACE_CUDA_CALLABLE float* getRawPolyConnects();
 
-		ZSPACE_CUDA_CALLABLE float* getRawSunVectors_hour();
+		ZSPACE_CUDA_CALLABLE float* getRawEdgeConnects();
 
-		ZSPACE_CUDA_CALLABLE float* getRawSunVectors_day();
+		ZSPACE_CUDA_CALLABLE float* getRawEdgeColors();
 
-		ZSPACE_CUDA_CALLABLE float* getRawCompassPts();
-
-		ZSPACE_CUDA_CALLABLE float* getRawEPWRadiation();
-
-		ZSPACE_CUDA_CALLABLE float* getRawCummulativeRadiation();
-
-		ZSPACE_CUDA_CALLABLE zVector getSunPosition(zDate& date);
-
-		ZSPACE_CUDA_CALLABLE zDomainDate getSunRise_SunSet(zDate& date);
-
-		ZSPACE_CUDA_CALLABLE zDomainDate getDomain_Dates();
+		ZSPACE_CUDA_CALLABLE float* getRawContours();
 
 		ZSPACE_CUDA_CALLABLE zDomainColor getDomain_Colors();
-
-		ZSPACE_CUDA_CALLABLE zLocation getLocation();
 
 		//--------------------------
 		//---- COMPUTE METHODS
 		//--------------------------	
-
-		ZSPACE_CUDA_CALLABLE void computeSunVectors_Year();
-
-		ZSPACE_CUDA_CALLABLE void computeCompass();
-
-		ZSPACE_CUDA_CALLABLE void computeCummulativeRadiation();
-
 
 		//--------------------------
 		//---- DISPLAY METHODS
@@ -186,10 +166,7 @@ namespace zSpace
 	protected:
 
 		ZSPACE_CUDA_CALLABLE_HOST void setMemory();
-
-		ZSPACE_CUDA_CALLABLE_HOST void computeSunVectors_Hour();
-
-		ZSPACE_CUDA_CALLABLE_HOST void computeSunVectors_Day();
+				
 
 	};
 }
@@ -197,7 +174,7 @@ namespace zSpace
 #if defined(ZSPACE_STATIC_LIBRARY)  || defined(ZSPACE_DYNAMIC_LIBRARY)
 // All defined OK so do nothing
 #else
-#include<source/zCudaToolsets/energy/zTsSolarAnalysis.cpp>
+#include<source/zCudaToolsets/field/zTsPixelField.cpp>
 #endif
 
 #endif
