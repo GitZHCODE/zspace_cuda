@@ -1,3 +1,15 @@
+// This file is part of zspace, a simple C++ collection of geometry data-structures & algorithms, 
+// data analysis & visualization framework.
+//
+// Copyright (C) 2022 ZSPACE 
+// 
+// This Source Code Form is subject to the terms of the MIT License 
+// If a copy of the MIT License was not distributed with this file, You can 
+// obtain one at https://opensource.org/licenses/MIT.
+//
+// Author : Vishu Bhooshan <vishu.bhooshan@zaha-hadid.com>, Federico Borello <federico.borello@zaha-hadid.com>, Cesar Fragachan <cesar.fragachan@zaha-hadid.com>, Ling Mao <Ling.Mao@zaha-hadid.com>
+//
+
 #include <headers/zCudaToolsets/energy/zTsSolarAnalysis.h>
 
 namespace zSpace
@@ -13,7 +25,7 @@ namespace zSpace
 	//---- SET METHODS
 
 
-	ZSPACE_INLINE void zTsSolarAnalysis::setNormals(const float *_normals, int _numNormals, bool EPWread)
+	ZSPACE_INLINE void zTsSolarAnalysis::setNormals(const float* _normals, int _numNormals, bool EPWread)
 	{
 		normals = new float[_numNormals];;
 		std::copy(_normals, _normals + _numNormals, normals);
@@ -69,12 +81,12 @@ namespace zSpace
 
 				if (startCount)
 				{
-							
+
 					epwData_radiation[count * 3 + 0] = atof(perlineData[5].c_str()); // temperature
 					epwData_radiation[count * 3 + 1] = atof(perlineData[8].c_str()); //pressure
 					epwData_radiation[count * 3 + 2] = atof(perlineData[11].c_str()); //radiation
 
-					if (leapYear && count == (59 *24)) // Feb 28
+					if (leapYear && count == (59 * 24)) // Feb 28
 					{
 						for (int k = 0; k < 24; k++)
 						{
@@ -84,7 +96,7 @@ namespace zSpace
 							epwData_radiation[count * 3 + 1] = epwData_radiation[(count - 24) * 3 + 1]; //pressure
 							epwData_radiation[count * 3 + 2] = epwData_radiation[(count - 24) * 3 + 2]; //radiation
 						}
-						
+
 					}
 
 					if (!leapYear && count == (365 * 24)) // Dec 31
@@ -100,7 +112,7 @@ namespace zSpace
 					}
 
 					//printf("\n %i | %1.2f ", count * 3 + 2, epwData_radiation[count * 3 + 2]);
-					
+
 					//epwData[count].humidity = atof(perlineData[7].c_str());
 					//epwData[count].windDirection = atof(perlineData[19].c_str());
 					//epwData[count].windSpeed = atof(perlineData[20].c_str());							
@@ -120,17 +132,17 @@ namespace zSpace
 		return true;
 	}
 
-	ZSPACE_INLINE void zTsSolarAnalysis::setDomain_Dates(zDomainDate & _dDate)
+	ZSPACE_INLINE void zTsSolarAnalysis::setDomain_Dates(zDomainDate& _dDate)
 	{
 		dDate = _dDate;
 	}
 
-	ZSPACE_INLINE void zTsSolarAnalysis::setDomain_Colors(zDomainColor & _dColor)
+	ZSPACE_INLINE void zTsSolarAnalysis::setDomain_Colors(zDomainColor& _dColor)
 	{
 		dColor = _dColor;
 	}
 
-	ZSPACE_INLINE void zTsSolarAnalysis::setLocation(zLocation & _location)
+	ZSPACE_INLINE void zTsSolarAnalysis::setLocation(zLocation& _location)
 	{
 		location = _location;
 	}
@@ -177,7 +189,7 @@ namespace zSpace
 		return sunVecs_days;
 	}
 
-	ZSPACE_INLINE float * zTsSolarAnalysis::getRawCompassPts()
+	ZSPACE_INLINE float* zTsSolarAnalysis::getRawCompassPts()
 	{
 		return compassPts;
 	}
@@ -192,7 +204,7 @@ namespace zSpace
 		return cummulativeRadiation;
 	}
 
-	ZSPACE_INLINE zVector zTsSolarAnalysis::getSunPosition(zDate &date)
+	ZSPACE_INLINE zVector zTsSolarAnalysis::getSunPosition(zDate& date)
 	{
 		float LocalTime = date.tm_hour + (date.tm_min / 60.0);
 
@@ -213,9 +225,9 @@ namespace zSpace
 		double alphaDeg;
 		alphaDeg = atan(cos(epsilonDeg * DEG_TO_RAD) * tan(LambdaDeg * DEG_TO_RAD));
 		alphaDeg *= RAD_TO_DEG;
-		if (cos(LambdaDeg  * DEG_TO_RAD) < 0)	alphaDeg += (4 * (atan(1.0) * RAD_TO_DEG));
+		if (cos(LambdaDeg * DEG_TO_RAD) < 0)	alphaDeg += (4 * (atan(1.0) * RAD_TO_DEG));
 
-		double deltaDeg = asin(sin(epsilonDeg * DEG_TO_RAD) * sin(LambdaDeg  * DEG_TO_RAD)) * RAD_TO_DEG;
+		double deltaDeg = asin(sin(epsilonDeg * DEG_TO_RAD) * sin(LambdaDeg * DEG_TO_RAD)) * RAD_TO_DEG;
 
 		zDate dZero(date.tm_year, date.tm_mon, date.tm_mday, 0, 0);
 		double JDNull = dZero.toJulian();
@@ -230,13 +242,13 @@ namespace zSpace
 
 		double tauDeg = theta - alphaDeg;
 
-		double denom = (cos(tauDeg  * DEG_TO_RAD)*sin(phi  * DEG_TO_RAD) - tan(deltaDeg  * DEG_TO_RAD)*cos(phi  * DEG_TO_RAD));
-		double aDeg = atan(sin(tauDeg  * DEG_TO_RAD) / denom);
+		double denom = (cos(tauDeg * DEG_TO_RAD) * sin(phi * DEG_TO_RAD) - tan(deltaDeg * DEG_TO_RAD) * cos(phi * DEG_TO_RAD));
+		double aDeg = atan(sin(tauDeg * DEG_TO_RAD) / denom);
 		aDeg *= RAD_TO_DEG;
 		if (denom < 0) aDeg = aDeg + 180;
 		aDeg += 180; //add 180 to azimuth to compute from the north.
 
-		double hDeg = asin(cos(deltaDeg  * DEG_TO_RAD)*cos(tauDeg  * DEG_TO_RAD)*cos(phi  * DEG_TO_RAD) + sin(deltaDeg  * DEG_TO_RAD)*sin(phi  * DEG_TO_RAD));
+		double hDeg = asin(cos(deltaDeg * DEG_TO_RAD) * cos(tauDeg * DEG_TO_RAD) * cos(phi * DEG_TO_RAD) + sin(deltaDeg * DEG_TO_RAD) * sin(phi * DEG_TO_RAD));
 		hDeg *= RAD_TO_DEG;
 
 		double valDeg = hDeg + (10.3 / (hDeg + 5.11));
@@ -247,7 +259,7 @@ namespace zSpace
 		return coreUtils.sphericalToCartesian(aDeg, hRDeg, 1.0);
 	}
 
-	ZSPACE_INLINE zDomainDate zTsSolarAnalysis::getSunRise_SunSet(zDate &date)
+	ZSPACE_INLINE zDomainDate zTsSolarAnalysis::getSunRise_SunSet(zDate& date)
 	{
 		zDomainDate out;
 
@@ -303,13 +315,13 @@ namespace zSpace
 	{
 		return location;
 	}
-	   
+
 	//---- COMPUTE METHODS
 
 	ZSPACE_INLINE void zTsSolarAnalysis::computeCummulativeRadiation()
 	{
-		for(int i =0; i< numNorms; i+= 3)
-		
+		for (int i = 0; i < numNorms; i += 3)
+
 		{
 			zVector norm(norm_sunvecs[i + 0], norm_sunvecs[i + 1], norm_sunvecs[i + 2]);
 
@@ -353,7 +365,6 @@ namespace zSpace
 
 	//---- PROTECTED METHODS
 
-
 	ZSPACE_INLINE void zTsSolarAnalysis::computeSunVectors_Year()
 	{
 		computeSunVectors_Hour();
@@ -386,7 +397,6 @@ namespace zSpace
 
 	//---- PROTECTED METHODS
 
-
 	ZSPACE_INLINE void zTsSolarAnalysis::setMemory()
 	{
 		if ((numNorms + MAX_SUNVECS_HOUR) < memSize) return;
@@ -396,7 +406,7 @@ namespace zSpace
 
 			norm_sunvecs = new float[memSize];
 			cummulativeRadiation = new float[memSize];
-			
+
 			// set to  Num Normals
 			colors = new float[memSize];
 		}
@@ -415,7 +425,7 @@ namespace zSpace
 		max.tm_mon = 12;
 		max.tm_mday = 31;
 		max.tm_hour = 23;
-		min.tm_min = 0;
+		max.tm_min = 59;
 
 
 		time_t  unixTime_s = min.toUnix();
@@ -463,12 +473,12 @@ namespace zSpace
 			hrCount++;
 		}
 
-    // for non leap years
+		// for non leap years
 		if (min.tm_year % 4 != 0)
 		{
 			for (int i = (365 * 24 * 3); i < MAX_SUNVECS_HOUR; i++)
 			{
-				sunVecs_hour[i] = INVALID_VAL;				
+				sunVecs_hour[i] = INVALID_VAL;
 			}
 		}
 	}
@@ -480,7 +490,7 @@ namespace zSpace
 
 		int _year = dDate.min.tm_year;
 
-		days[0] = zDate(_year, 06, 20, 0, 1);
+		days[0] = zDate(_year, 06, 21, 0, 1);
 		days[1] = zDate(_year, 12, 21, 0, 1);
 		days[2] = zDate(_year, 1, 28, 0, 1);
 		days[3] = zDate(_year, 2, 28, 0, 1);
