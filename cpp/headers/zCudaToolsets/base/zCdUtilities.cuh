@@ -147,25 +147,6 @@ ZSPACE_CUDA_CALLABLE_HOST ZSPACE_INLINE void cdpGetAttributes(int &numSMs, int &
 	//printf("\n numSMs: %i  numTB :%i ", numSMs, numTB);
 }
 
-ZSPACE_EXTERN bool checkCudaExists(string &version)
-{
 
-	int runtime;
-	cudaRuntimeGetVersion(&runtime);
-
-	cout <<"\n CUDA: "<< runtime;
-
-	if (runtime >= 10020)
-	{
-		version = "NVIDIA CUDA 10.2 or higher Installed.";
-		return true;
-	}
-	else
-	{
-		version = "Install NVIDIA CUDA 10.2 or higher.";
-		return false;
-	}
-	   
-}
 
 #endif

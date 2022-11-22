@@ -34,6 +34,13 @@
 #define ZSPACE_CUDA_GLOBAL
 #endif
 
+#define ZSPACE_CUDA_EXTERN extern
+
+#if defined(ZSPACE_CUDA_DYNAMIC_LIBRARY) 
+#define ZSPACE_CUDA_TOOLSET  __declspec(dllexport)
+#else
+#define ZSPACE_CUDA_TOOLSET  
+#endif
 
 /*!
 *	\brief Defines the size of d_THREADSPERBLOCK.

@@ -56,6 +56,9 @@
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zCdVoxelField.cuh">
       <Filter>Headers\Field</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\base\zCdExternalUtilities.cuh">
+      <Filter>Headers\Base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarAnalysis.cpp">

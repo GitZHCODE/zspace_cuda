@@ -36,7 +36,7 @@
 namespace zSpace
 {
 
-	struct zNorm_SunVec
+	struct ZSPACE_CUDA_TOOLSET zNorm_SunVec
 	{
 		zVector norm;
 		zVector sunVec;
@@ -61,7 +61,7 @@ namespace zSpace
 
 	/** @}*/
 
-	class ZSPACE_CUDA zTsSolarAnalysis
+	class ZSPACE_CUDA_TOOLSET zTsSolarAnalysis
 	{
 	private:
 
@@ -213,7 +213,7 @@ namespace zSpace
 	};
 }
 
-#if defined(ZSPACE_STATIC_LIBRARY)  || defined(ZSPACE_DYNAMIC_LIBRARY)
+#if defined(ZSPACE_CUDA_STATIC_LIBRARY)  || defined(ZSPACE_CUDA_DYNAMIC_LIBRARY)
 // All defined OK so do nothing
 #else
 #include<source/zCudaToolsets/energy/zTsSolarAnalysis.cpp>

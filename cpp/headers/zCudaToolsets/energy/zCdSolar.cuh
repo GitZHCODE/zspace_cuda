@@ -91,7 +91,7 @@ ZSPACE_CUDA_CALLABLE zVector getSunPosition(zDate &date, zLocation &location)
 	return zPoint(cos(aDeg * DEG_TO_RAD) * sin(hRDeg * DEG_TO_RAD), cos(aDeg * DEG_TO_RAD) * cos(hRDeg * DEG_TO_RAD), sin(aDeg * DEG_TO_RAD));
 }
 
-ZSPACE_EXTERN void cleanDeviceMemory()
+ZSPACE_CUDA_EXTERN void cleanDeviceMemory()
 {
 	// Free memory.
 	cudaFree(d_norms_sunVecs);
@@ -253,7 +253,7 @@ ZSPACE_CUDA_GLOBAL void computeCummulativeAngle_kernel(float *norms_sunvecs, flo
 
 //---- launch KERNEL METHODS
 
-ZSPACE_EXTERN bool cdpCummulativeRadiation(zTsSolarAnalysis &sAnalysis, bool EPWRead)
+ZSPACE_CUDA_EXTERN bool cdpCummulativeRadiation(zTsSolarAnalysis &sAnalysis, bool EPWRead)
 {
 	int numSMs, numTB;
 	cdpGetAttributes(numSMs, numTB);
