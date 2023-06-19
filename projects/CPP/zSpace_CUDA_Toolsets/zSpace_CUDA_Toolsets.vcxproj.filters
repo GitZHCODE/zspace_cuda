@@ -56,6 +56,9 @@
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zCdVoxelField.cuh">
       <Filter>Headers\Field</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\energy\zTsSolarOcclusionGPU.h">
+      <Filter>Headers\Energy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarAnalysis.cpp">
@@ -70,5 +73,13 @@
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsPixelField.cpp">
       <Filter>SourceFiles\Field</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarOcclusionGPU.cpp">
+      <Filter>SourceFiles\Energy</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\cpp\headers\zCudaToolsets\energy\zCdSolarOcclusion.cuh">
+      <Filter>Headers\Energy</Filter>
+    </None>
   </ItemGroup>
 </Project>

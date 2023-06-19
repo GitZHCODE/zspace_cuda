@@ -57,6 +57,14 @@
 #endif
 
 /*!
+*	\brief Defines the size of FloatSize.
+*/
+#ifndef IntSize
+#define IntSize sizeof(int)
+#endif
+
+
+/*!
 *	\brief Defines the size of zVectorSize.
 */
 #ifndef zVectorSize

@@ -34,6 +34,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.6.props" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.7.props" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug_DLL|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -87,7 +88,7 @@
     </Link>
     <CudaCompile>
       <TargetMachinePlatform>64</TargetMachinePlatform>
-      <Include>$(CudaCommonDir);</Include>
+      <Include>$(CudaCommonDir)</Include>
     </CudaCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -97,6 +98,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\base\zCudaDefinitions.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\energy\zTsSolarAnalysis.h" />
+    <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\energy\zTsSolarOcclusionGPU.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zCdVoxelField.cuh" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsPixelField.h" />
     <ClInclude Include="..\..\..\cpp\headers\zCudaToolsets\field\zTsVoxelField.h" />
@@ -104,12 +106,17 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarAnalysis.cpp" />
+    <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\energy\zTsSolarOcclusionGPU.cpp" />
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsPixelField.cpp" />
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\field\zTsVoxelField.cpp" />
     <ClCompile Include="..\..\..\cpp\source\zCudaToolsets\vizscan\zTsVizScan.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\cpp\headers\zCudaToolsets\energy\zCdSolarOcclusion.cuh" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.6.targets" />
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\CUDA 11.7.targets" />
   </ImportGroup>
 </Project>
