@@ -191,7 +191,7 @@ namespace zSpace
 #if defined(ZSPACE_STATIC_LIBRARY)  || defined(ZSPACE_DYNAMIC_LIBRARY)
 // All defined OK so do nothing
 #else
-#include<source/zCudaToolsets/energy/zTsSolarAnalysis.cpp>
+#include<source/zCudaToolsets/energy/zTsVizScan.cpp>
 #endif
 
 #endif

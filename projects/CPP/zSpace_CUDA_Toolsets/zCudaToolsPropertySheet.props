@@ -6,6 +6,7 @@
     <MayaDir>C:\Program Files\Autodesk\Maya2018</MayaDir>
     <CudaCommonDir>C:\ProgramData\NVIDIA Corporation\CUDA Samples\v11.6\common</CudaCommonDir>
     <zspacecoreDir>C:\Users\vishu.b\source\repos\GitZHCODE\zspace_core</zspacecoreDir>
+    <zspaceLibDir>C:\Users\vishu.b\source\repos\GitZHCODE\zspace_cuda\cpp\depends\zspaceCore</zspaceLibDir>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -24,6 +25,10 @@
     </BuildMacro>
     <BuildMacro Include="zspacecoreDir">
       <Value>$(zspacecoreDir)</Value>
+      <EnvironmentVariable>true</EnvironmentVariable>
+    </BuildMacro>
+    <BuildMacro Include="zspaceLibDir">
+      <Value>$(zspaceLibDir)</Value>
       <EnvironmentVariable>true</EnvironmentVariable>
     </BuildMacro>
   </ItemGroup>

@@ -21,8 +21,6 @@ Global
 		Release_Make|x86 = Release_Make|x86
 		Release_Unreal|x64 = Release_Unreal|x64
 		Release_Unreal|x86 = Release_Unreal|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Debug_DLL|x64.ActiveCfg = Debug_DLL|x64
@@ -43,10 +41,6 @@ Global
 		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x64.Build.0 = Release_DLL|x64
 		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x86.ActiveCfg = Release_DLL|x64
 		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release_Unreal|x86.Build.0 = Release_DLL|x64
-		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x64.ActiveCfg = Release_DLL|x64
-		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x64.Build.0 = Release_DLL|x64
-		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x86.ActiveCfg = Release_DLL|x64
-		{D4DDFD61-565A-432E-B78E-874A9EAC13BB}.Release|x86.Build.0 = Release_DLL|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
